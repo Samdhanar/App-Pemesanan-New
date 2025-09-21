@@ -106,11 +106,10 @@ $result = $db->query($query);
                 <!-- Total Pendapatan -->
                 <h5 class="mb-0">
                     Total Pendapatan:
-                    <span class="text-dark">Rp <?= number_format($total_pendapatan, 0, ',', '.') ?></span>
+                    <span id="total-pendapatan" class="text-dark">Rp <?= number_format($total_pendapatan, 0, ',', '.') ?></span>
                 </h5>
             </div>
 
-            <!-- Tabel Data -->
             <!-- Tabel Data -->
             <div id="tabel-data" class="table-responsive mt-4">
                 <table class="table table-bordered table-striped">
@@ -162,7 +161,22 @@ $result = $db->query($query);
                     document.querySelector("#tabel-data").innerHTML = newTable.innerHTML;
                 })
                 .catch(err => console.error("Gagal reload tabel:", err));
-        }, 5000); // 5000ms = 5 detik
+        }, 1000); // 1000ms = 1 detik
+
+        // reload total pendapatan setiap 1 detik
+        setInterval(function() {
+            fetch(window.location.href) // ambil ulang halaman sekarang
+                .then(response => response.text())
+                .then(html => {
+                    let parser = new DOMParser();
+                    let doc = parser.parseFromString(html, "text/html");
+                    let newTotal = doc.querySelector("#total-pendapatan");
+                    if (newTotal) {
+                        document.querySelector("#total-pendapatan").innerHTML = newTotal.innerHTML;
+                    }
+                })
+                .catch(err => console.error("Gagal reload total pendapatan:", err));
+        }, 1000); // 1000ms = 1 detik
     </script>
 
 </body>

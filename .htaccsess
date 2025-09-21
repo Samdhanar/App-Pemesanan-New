@@ -1,0 +1,7 @@
+# Lindungi file sensitif
+<FilesMatch "(connect_db\.php|connect_cread\.php|\.env|\.ini|\.log|\.sql|\.bak|\.sh)$">
+    Require all denied
+</FilesMatch>
+
+# Biar default buka login.php
+DirectoryIndex login.php

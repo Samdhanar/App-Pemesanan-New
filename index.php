@@ -379,7 +379,7 @@ $hero_data = [];
                 titleEl.classList.add("show");
                 subEl.classList.add("show");
 
-                setInterval(changeText, 5000);
+                setInterval(changeText, 10000);
             }
         });
     </script>
@@ -439,9 +439,10 @@ $hero_data = [];
                                 </div>
                                 <div class="modal-body text-center">
                                     <img src="koneksi/unggahan/<?= $p['gambar']; ?>" class="img-fluid mb-3" alt="<?= $p['nama']; ?>">
-                                    <p><strong>Harga:</strong> Rp. <?= number_format($p['harga'], 0, ',', '.'); ?></p>
-                                    <p><strong>Kategori:</strong> <?= $p['kategori']; ?></p>
-                                    <p><strong>Deskripsi:</strong><br> <?= $p['deskripsi'] ?? 'Tidak ada deskripsi.'; ?></p>
+                                    <hr>
+                                    <p class="text-start"><strong>Harga:</strong> Rp. <?= number_format($p['harga'], 0, ',', '.'); ?></p>
+                                    <p class="text-start"><strong>Kategori:</strong> <?= $p['kategori']; ?></p>
+                                    <p class="text-start"><strong>Deskripsi:</strong><br> <?= $p['deskripsi'] ?? 'Tidak ada deskripsi.'; ?></p>
                                 </div>
                             </div>
                         </div>

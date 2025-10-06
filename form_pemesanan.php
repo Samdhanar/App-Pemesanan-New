@@ -28,7 +28,7 @@ while ($row = mysqli_fetch_assoc($query)) {
 
 <head>
   <meta charset="UTF-8">
-  <title>Elkusa Cafe</title>
+  <title>Kantin Bu Rully</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
   <link rel="icon" type="image/png" href="assets/image/logo_cafe.png">
@@ -161,7 +161,7 @@ while ($row = mysqli_fetch_assoc($query)) {
     <div class="container-lg">
       <a class="navbar-brand d-flex align-items-center" href="#">
         <img src="assets/image/logo_cafe.png" alt="Elkusa Cafe" height="70" class="me-2">
-        <span>Elkusa Cafe</span>
+        <span>Kantin Bu Rully</span>
       </a>
       <!-- Tombol Burger -->
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown">

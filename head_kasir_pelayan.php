@@ -2,7 +2,7 @@
             <div class="container-lg">
                 <a class="navbar-brand d-flex align-items-center" href="#">
                     <img src="assets/image/logo_cafe.png" alt="Elkusa Cafe" height="70" class="me-2">
-                    <span>Elkusa Cafe</span>
+                    <span>Kantin Bu Rully</span>
                 </a>
 
                 <!-- Tombol Burger -->

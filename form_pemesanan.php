@@ -171,10 +171,12 @@ while ($row = mysqli_fetch_assoc($query)) {
       <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link link-dark <?= basename($_SERVER['PHP_SELF']) == 'index.php' ? 'active' : '' ?>" href="index.php"><i class="bi bi-house-door"></i> Beranda</a>
+            <a class="nav-link link-dark <?= basename($_SERVER['PHP_SELF']) == 'index.php' ? 'active' : '' ?>" 
+              href="index.php"><i class="bi bi-house-door"></i> Beranda</a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link link-dark <?= basename($_SERVER['PHP_SELF']) == 'form_pemesanan.php' ? 'active' : '' ?>" href="form_pemesanan.php"><i class="bi bi-cart3"></i> Pesan</a>
+            <a class="nav-link link-dark <?= basename($_SERVER['PHP_SELF']) == 'form_pemesanan.php' ? 'active' : '' ?>" 
+              href="form_pemesanan.php"><i class="bi bi-cart3"></i> Pesan</a>
           </li>
         </ul>
       </div>
@@ -261,7 +263,7 @@ while ($row = mysqli_fetch_assoc($query)) {
   <!-- Footer -->
 
   <footer class="bg-light text-center py-4">
-    <p class="mb-0">© 2025 masdhanar |Elkusa Cafe </p>
+    <p class="mb-0">© 2025 masdhanar |Kantin Bu Rully </p>
   </footer>
 
   <!-- JS -->

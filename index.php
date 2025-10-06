@@ -466,7 +466,7 @@ $hero_data = [];
     <!-- Footer -->
     <hr class="border border-dark border-1">
     <footer class="text-center py-4 mt-5">
-        <p class="mb-0">© 2025 masdhanar | Elkusa Cafe </p>
+        <p class="mb-0">© 2025 masdhanar | Kantin Bu Rully </p>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>

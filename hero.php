@@ -139,7 +139,7 @@ $result = getHeroTexts($db);
 
     <hr class="mt-5">
     <footer class="bg-light text-center py-4">
-        <p class="mb-0">© 2025 masdhanar | Elkusa Cafe </p>
+        <p class="mb-0">© 2025 masdhanar | Kantin Bu Rully </p>
     </footer>
 </body>
 

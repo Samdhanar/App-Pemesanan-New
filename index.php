@@ -315,7 +315,7 @@ $hero_data = [];
     <nav class="navbar navbar-expand-lg bg-light border sticky-top">
         <div class="container-lg">
             <a class="navbar-brand d-flex align-items-center" href="#">
-                <img src="assets/image/logo_cafe.png" alt="Elkusa Cafe" height="70" class="me-2">
+                <img src="assets/image/logo_cafe.png" alt="Kantin Bu Rully" height="70" class="me-2">
                 <span>Kantin Bu Rully</span>
             </a>
             <!-- Tombol Burger -->

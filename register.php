@@ -62,7 +62,7 @@
               <a href="login.php">Login di sini</a>
             </p>
             <footer class="bg-light text-center py-4">
-              <p class="mb-0">© 2025 masdhanar | Kantin Bu Rully</p>
+              <p class="mb-0">© 2025 Mas hanar |</p>
             </footer>
           </div>
         </div>

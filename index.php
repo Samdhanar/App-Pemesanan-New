@@ -13,7 +13,7 @@ $hero_data = [];
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Kantin Bu Rully</title>
+    <title>Dhanar Project</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link rel="icon" type="image/png" href="assets/image/logo_cafe.png">
@@ -316,7 +316,7 @@ $hero_data = [];
         <div class="container-lg">
             <a class="navbar-brand d-flex align-items-center" href="#">
                 <img src="assets/image/logo_cafe.png" alt="Kantin Bu Rully" height="70" class="me-2">
-                <span>Kantin Bu Rully</span>
+                <span>Dhanar Project</span>
             </a>
             <!-- Tombol Burger -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown">
@@ -466,7 +466,7 @@ $hero_data = [];
     <!-- Footer -->
     <hr class="border border-dark border-1">
     <footer class="text-center py-4 mt-5">
-        <p class="mb-0">© 2025 masdhanar | Kantin Bu Rully </p>
+        <p class="mb-0">© 2025 Mas Dhanar |</p>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>

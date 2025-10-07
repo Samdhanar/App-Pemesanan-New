@@ -144,7 +144,7 @@ $result = $db->query($query);
     </div>
     <hr class="mt-5">
     <footer class="text-center py-4 mt-4">
-        <p class="mb-0">© 2025 masdhanar | Elkusa Cafe</p>
+        <p class="mb-0">© 2025 Mas Dhanar</p>
     </footer>
 
     <script>

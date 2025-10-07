@@ -30,7 +30,7 @@ $result = getHeroTexts($db);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kelola Hero Text</title>
+    <title>Dhanar Project</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link rel="icon" type="image/png" href="assets/image/logo_cafe.png">
@@ -139,7 +139,7 @@ $result = getHeroTexts($db);
 
     <hr class="mt-5">
     <footer class="bg-light text-center py-4">
-        <p class="mb-0">© 2025 masdhanar | Kantin Bu Rully </p>
+        <p class="mb-0">© 2025 Mas Dhanar</p>
     </footer>
 </body>
 

@@ -59,7 +59,7 @@ while ($row = $res_jam->fetch_assoc()) {
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Diagram Rekap Penjualan</title>
+    <title>Dhanar Project</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>

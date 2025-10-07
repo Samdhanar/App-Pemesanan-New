@@ -10,7 +10,7 @@
 
 # Admin 
 1. CRUD Postingan, Hero Teks, User (Admin, Kasir, Pelayan)
-2. Statistik 
+2. Statistik Menu dan Jam Ramai
 3. Export Rekap Penjualan (excel)
 
 # Kasir 

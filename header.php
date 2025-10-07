@@ -1,8 +1,8 @@
         <nav class="navbar navbar-expand-lg bg-light border sticky-top mt-0">
             <div class="container-lg">
                 <a class="navbar-brand d-flex align-items-center" href="halaman_admin.php">
-                    <img src="assets/image/logo_cafe.png" alt="Elkusa Cafe" height="70" class="me-2">
-                    <span>Kantin Bu Rully</span>
+                    <img src="assets/image/logo_cafe.png" alt="Dhanar Project" height="70" class="me-2">
+                    <span>Dhanar Project</span>
                 </a>
 
                 <!-- Tombol Burger -->

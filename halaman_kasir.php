@@ -81,7 +81,7 @@ if (isset($_GET['mode']) && $_GET['mode'] === 'table') {
 
 <head>
     <meta charset="UTF-8">
-    <title>Kantin Bu Rully</title>
+    <title>Dhanar Project</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
@@ -185,8 +185,8 @@ if (isset($_GET['mode']) && $_GET['mode'] === 'table') {
                                 </tr>
                             </thead>
                             <tbody id="kasirBody">
-                                <?php
-                                $query = "
+<?php
+    $query = "
         SELECT 
             r.meja,
             DATE_FORMAT(r.tanggal, '%H:%i') AS jam_menit,
@@ -197,7 +197,7 @@ if (isset($_GET['mode']) && $_GET['mode'] === 'table') {
         WHERE r.status = 'BELUM'
         GROUP BY r.meja, jam_menit
         ORDER BY MAX(r.tanggal) DESC
-    ";
+";
                                 $result = $db->query($query);
 
                                 if ($result && $result->num_rows > 0) {
@@ -228,7 +228,7 @@ if (isset($_GET['mode']) && $_GET['mode'] === 'table') {
     </main>
     <hr>
     <footer class="bg-light text-center py-4">
-        <p class="mb-0">© 2025 masdhanar | Elkusa Cafe </p>
+        <p class="mb-0">© 2025 Mas Dhanar </p>
     </footer>
 </body>
 

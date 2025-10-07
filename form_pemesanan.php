@@ -160,8 +160,8 @@ while ($row = mysqli_fetch_assoc($query)) {
   <nav class="navbar navbar-expand-lg bg-light border sticky-top">
     <div class="container-lg">
       <a class="navbar-brand d-flex align-items-center" href="index.php">
-        <img src="assets/image/logo_cafe.png" alt="Kantin Bu Rully" height="70" class="me-2">
-        <span>Kantin Bu Rully</span>
+        <img src="assets/image/logo_cafe.png" alt="Dhanar Project" height="70" class="me-2">
+        <span>Dhanar Project</span>
       </a>
       <!-- Tombol Burger -->
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown">
@@ -263,7 +263,7 @@ while ($row = mysqli_fetch_assoc($query)) {
   <!-- Footer -->
 
   <footer class="bg-light text-center py-4">
-    <p class="mb-0">© 2025 masdhanar |Kantin Bu Rully </p>
+    <p class="mb-0">© 2025 Mas Dhanar </p>
   </footer>
 
   <!-- JS -->

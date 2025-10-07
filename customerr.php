@@ -49,7 +49,7 @@ $result = $db->query($sql);
 
 <head>
     <meta charset="UTF-8">
-    <title>Kantin Bu Rully</title>
+    <title>Dhanar Project</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
@@ -177,7 +177,7 @@ $result = $db->query($sql);
     <!-- Footer -->
     <hr class="border border-dark border-1">
     <footer class="bg-light text-center py-4">
-        <p class="mb-0">© 2025 masdhanar | Elkusa Cafe </p>
+        <p class="mb-0">© 2025 Mas Dhanar </p>
     </footer>
 </body>
 

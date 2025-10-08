@@ -57,7 +57,7 @@ $result = $db->query($query);
     <title>Dhanar Project</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
-    <link rel="icon" type="image/png" href="assets/image/logo_cafe.png">
+    <link rel="icon" type="image/png" href="assets/image/kedai_sor_sawo.jpg">
 </head>
 <style>
     body {
@@ -145,7 +145,7 @@ $result = $db->query($query);
     <!-- Footer -->
     <hr class="border border-dark border-1">
     <footer class="bg-light text-center py-4">
-        <p class="mb-0">© 2025 Mas Dhanar</p>
+        <p class="mb-0">© Mas Dhanar || Kedai Sor Sawo</p>
     </footer>
 
     <script>

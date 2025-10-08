@@ -80,7 +80,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['level'])) {
                             Home ? 
                             <a href="index.php">Kembali</a>
                         </p>
-                        <small class="text-muted">© <?= date('Y'); ?> Mas Dhanar |</small>
+                        <small class="text-muted">© <?= date('Y'); ?> Mas Dhanar || Kedai Sor Sawo</small>
                     </div>
                 </div>
             </div>

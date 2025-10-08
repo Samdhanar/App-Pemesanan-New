@@ -56,7 +56,8 @@ if (!isset($_SESSION['username']) || $_SESSION['username'] !== 'admin') {
                         <select name="kategori" class="form-select" required>
                             <option value="">Pilih Kategori</option>
                             <option value="Makanan">Makanan</option>
-                            <option value="Minuman">Minuman</option>
+                            <option value="Minuman Panas">Minuman Panas</option>
+                            <option value="Minuman Dingin">Minuman Dingin</option>
                         </select>
                     </div>
 

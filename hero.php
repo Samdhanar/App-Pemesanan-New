@@ -33,7 +33,7 @@ $result = getHeroTexts($db);
     <title>Dhanar Project</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-    <link rel="icon" type="image/png" href="assets/image/logo_cafe.png">
+    <link rel="icon" type="image/png" href="assets/image/kedai_sor_sawo.jpg">
     <style>
         body {
             min-height: 100vh;
@@ -139,7 +139,7 @@ $result = getHeroTexts($db);
 
     <hr class="mt-5">
     <footer class="bg-light text-center py-4">
-        <p class="mb-0">© 2025 Mas Dhanar</p>
+        <p class="mb-0">© Mas Dhanar || Kedai Sor Sawo</p>
     </footer>
 </body>
 

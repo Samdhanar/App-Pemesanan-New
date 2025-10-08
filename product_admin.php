@@ -89,7 +89,7 @@ $kategori_list = mysqli_query($db, "SELECT DISTINCT kategori FROM menu WHERE kat
     <title>Dhanar Project</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-    <link rel="icon" type="image/png" href="assets/image/logo_cafe.png">
+    <link rel="icon" type="image/png" href="assets/image/kedai_sor_sawo.jpg">
     <style>
         body {
             min-height: 100vh;
@@ -171,7 +171,8 @@ $kategori_list = mysqli_query($db, "SELECT DISTINCT kategori FROM menu WHERE kat
                         <select id="kategoriFilter" class="form-select w-auto">
                             <option value="">Semua Kategori</option>
                             <option value="makanan">Makanan</option>
-                            <option value="minuman">Minuman</option>
+                            <option value="minuman Panas">Minuman Panas</option>
+                            <option value="minuman Dingin">Minuman Dingin</option>
                         </select>
                     </div>
                 </div>
@@ -318,7 +319,7 @@ $kategori_list = mysqli_query($db, "SELECT DISTINCT kategori FROM menu WHERE kat
     </main>
     <hr>
     <footer class="bg-light text-center py-4">
-        <p class="mb-0">© 2025 Mas Dhanar</p>
+        <p class="mb-0">© Mas Dhanar || Kedai Sor Sawo</p>
     </footer>
 </body>
 

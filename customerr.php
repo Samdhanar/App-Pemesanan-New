@@ -53,7 +53,7 @@ $result = $db->query($sql);
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-    <link rel="icon" type="image/png" href="assets/image/logo_cafe.png">
+    <link rel="icon" type="image/png" href="assets/image/kedai_sor_sawo.jpg">
     <style>
         body {
             min-height: 100vh; /* set tinggi minimum layar penuh */
@@ -177,7 +177,7 @@ $result = $db->query($sql);
     <!-- Footer -->
     <hr class="border border-dark border-1">
     <footer class="bg-light text-center py-4">
-        <p class="mb-0">© 2025 Mas Dhanar </p>
+        <p class="mb-0">© 2025 Mas Dhanar || Kedai Sor Sawo </p>
     </footer>
 </body>
 

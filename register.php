@@ -62,7 +62,7 @@
               <a href="login.php">Login di sini</a>
             </p>
             <footer class="bg-light text-center py-4">
-              <p class="mb-0">© 2025 Mas hanar |</p>
+              <p class="mb-0">© 2025 Mas Dhanar || Kedai Sor Sawo</p>
             </footer>
           </div>
         </div>

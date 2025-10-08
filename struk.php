@@ -88,8 +88,8 @@ $kembali = $bayar - $total_setelah_diskon;
 <body onload="window.print()">
     <div class="struk">
         <div class="center">
-            <h3>Dhanar Project</h3>
-            <small>Jl. Rahman Hakim No. 01 Ponorogo<br>Telp: 1903-1903-1903</small>
+            <h3>Kedai Sor Sawo</h3>
+            <small>Jl. Pramuka No.01, Sultan Agung, Nologaten, Kec. Ponorogo, Kab. Ponorogo<br>Telp : 081234567890</small>
         </div>
         <hr>
         Meja : <?= $meja ?><br>

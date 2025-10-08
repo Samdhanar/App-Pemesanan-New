@@ -1,9 +1,12 @@
         <nav class="navbar navbar-expand-lg bg-light border sticky-top mt-0">
             <div class="container-lg">
-                <a class="navbar-brand d-flex align-items-center" href="#">
-                    <img src="assets/image/logo_cafe.png" alt="Dhanar Project" height="70" class="me-2">
-                    <span>Dhanar Project</span>
+                <a class="navbar-brand d-flex align-items-center justify-content-center" href="halaman_admin.php">
+                    <img src="assets/image/kedai_sor_sawo.jpg"
+                        alt="Kedai Sor Sawo"
+                        style="width:60px; height:60px; border-radius:50%; object-fit:cover; margin-right:10px;">
+                    <span class="fw-bold" style="font-size:1.5rem;">Kedai Sor Sawo</span>
                 </a>
+
 
                 <!-- Tombol Burger -->
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"

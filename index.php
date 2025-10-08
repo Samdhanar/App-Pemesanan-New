@@ -2,7 +2,7 @@
 include "koneksi/connect_db.php";
 $query = mysqli_query($db, "SELECT * FROM hero_text ORDER BY id ASC");
 $hero_data = [];
-    while ($row = mysqli_fetch_assoc($query)) {
+while ($row = mysqli_fetch_assoc($query)) {
     $hero_data[] = $row;
 }
 ?>
@@ -16,7 +16,7 @@ $hero_data = [];
     <title>Dhanar Project</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-    <link rel="icon" type="image/png" href="assets/image/logo_cafe.png">
+    <link rel="icon" type="image/png" href="assets/image/kedai_sor_sawo.jpg">
     <style>
         /* Navbar */
         .navbar {
@@ -314,10 +314,13 @@ $hero_data = [];
     <!-- navbar -->
     <nav class="navbar navbar-expand-lg bg-light border sticky-top">
         <div class="container-lg">
-            <a class="navbar-brand d-flex align-items-center" href="#">
-                <img src="assets/image/logo_cafe.png" alt="Kantin Bu Rully" height="70" class="me-2">
-                <span>Dhanar Project</span>
+            <a class="navbar-brand d-flex align-items-center justify-content-center" href="halaman_admin.php">
+                <img src="assets/image/kedai_sor_sawo.jpg"
+                    alt="Kedai Sor Sawo"
+                    style="width:60px; height:60px; border-radius:50%; object-fit:cover; margin-right:10px;">
+                <span class="fw-bold" style="font-size:1.5rem;">Kedai Sor Sawo</span>
             </a>
+
             <!-- Tombol Burger -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown">
                 <span class="navbar-toggler-icon"></span>
@@ -400,7 +403,8 @@ $hero_data = [];
             <select id="kategoriFilter" class="form-select w-auto">
                 <option value="">Semua Kategori</option>
                 <option value="makanan">Makanan</option>
-                <option value="minuman">Minuman</option>
+                <option value="minuman panas">Minuman Panas</option>
+                <option value="minuman dingin">Minuman Dingin</option>
             </select>
         </div>
 
@@ -466,7 +470,7 @@ $hero_data = [];
     <!-- Footer -->
     <hr class="border border-dark border-1">
     <footer class="text-center py-4 mt-5">
-        <p class="mb-0">© 2025 Mas Dhanar |</p>
+        <p class="mb-0">© 2025 Mas Dhanar || Kedai Sor Sawo</p>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>

@@ -98,7 +98,6 @@ if (isset($_GET['mode']) && $_GET['mode'] === 'table') {
         }
     </style>
     <script>
-        
         // Pembayaran
         function pembayaran(meja, jam_menit, total) {
             let diskon = prompt("Masukkan diskon (%) jika ada:", "0");
@@ -185,8 +184,8 @@ if (isset($_GET['mode']) && $_GET['mode'] === 'table') {
                                 </tr>
                             </thead>
                             <tbody id="kasirBody">
-<?php
-    $query = "
+                                <?php
+                                $query = "
         SELECT 
             r.meja,
             DATE_FORMAT(r.tanggal, '%H:%i') AS jam_menit,
@@ -203,17 +202,17 @@ if (isset($_GET['mode']) && $_GET['mode'] === 'table') {
                                 if ($result && $result->num_rows > 0) {
                                     while ($row = $result->fetch_assoc()) {
                                         echo "<tr>
-                                            <td class='text-center'>{$row['meja']}</td>
-                                            <td class='text-center'>{$row['jam_menit']}</td>
-                                            <td>{$row['daftar_pesanan']}</td>
-                                            <td class='text-start'>Rp " . number_format($row['total_harga'], 0, ',', '.') . "</td>
-                                            <td class='text-center'>
-                                                <button class='btn btn-success btn-sm'
-                                                    onclick=\"pembayaran('{$row['meja']}', '{$row['jam_menit']}', {$row['total_harga']})\">
-                                                    Pembayaran
-                                                </button>
-                                            </td>
-                                            </tr>";
+                <td class='text-center'>{$row['meja']}</td>
+                <td class='text-center'>{$row['jam_menit']}</td>
+                <td>{$row['daftar_pesanan']}</td>
+                <td class='text-start'>Rp " . number_format($row['total_harga'], 0, ',', '.') . "</td>
+                <td class='text-center'>
+                    <button class='btn btn-success btn-sm'
+                        onclick=\"pembayaran('{$row['meja']}', '{$row['jam_menit']}', {$row['total_harga']})\">
+                        Pembayaran
+                    </button>
+                </td>
+                </tr>";
                                     }
                                 } else {
                                     echo "<tr><td colspan='5' class='text-center'>Belum ada pesanan</td></tr>";

@@ -17,8 +17,8 @@ if (isset($_GET['selesai']) && isset($_GET['jam'])) {
     SELECT meja, product_id, SUM(jumlah) AS jumlah, SUM(total_harga) AS total_harga, NOW(), 'BELUM'
     FROM pesanan 
     WHERE meja = '$meja'
-      AND TIME(tanggal) BETWEEN STR_TO_DATE('$jamMenit:00','%H:%i:%s') 
-                            AND STR_TO_DATE('$jamMenit:59','%H:%i:%s')
+        AND TIME(tanggal) BETWEEN STR_TO_DATE('$jamMenit:00','%H:%i:%s') 
+        AND STR_TO_DATE('$jamMenit:59','%H:%i:%s')
     GROUP BY meja, product_id
 ");
 
@@ -67,7 +67,7 @@ if (isset($_GET['mode']) && $_GET['mode'] === 'table') {
                         <a href='?selesai={$row['meja']}&jam=" . urlencode($row['jam_menit']) . "' 
                            class='btn btn-success btn-sm'
                            onclick=\"return confirm('Pesanan meja {$row['meja']} jam {$row['jam_menit']} sudah selesai?')\">
-                           ✅ Selesai
+                           Selesai
                         </a>
                     </td>
                 </tr>";
@@ -131,7 +131,7 @@ if (isset($_GET['mode']) && $_GET['mode'] === 'table') {
 
                 <!-- Input Pencarian -->
                 <div class="mb-3">
-                    <input type="text" id="cariPesanan" class="form-control" placeholder="Cari pesanan, meja, atau jam...">
+                    <input type="number" id="cariPesanan" class="form-control" placeholder="Cari Meja" onkeyup="applyFilter()">
                 </div>
 
                 <!-- Tabel Pesanan -->
@@ -148,25 +148,25 @@ if (isset($_GET['mode']) && $_GET['mode'] === 'table') {
                     <tbody id="tabelPesanan">
                         <?php
                         $query = "
-        SELECT 
-            x.meja,
-            DATE_FORMAT(x.waktu, '%H:%i') AS jam_menit,
-            GROUP_CONCAT(CONCAT(m.nama, ' (', x.jumlah, ')') SEPARATOR ', ') AS daftar_pesanan,
-            SUM(x.total_harga) AS total_harga
-        FROM (
-            SELECT 
-                p.meja,
-                p.product_id,
-                SUM(p.jumlah) AS jumlah,
-                SUM(p.total_harga) AS total_harga,
-                MIN(p.tanggal) AS waktu
-            FROM pesanan p
-            GROUP BY p.meja, p.product_id, DATE_FORMAT(p.tanggal, '%H:%i')
-        ) x
-        JOIN menu m ON m.id = x.product_id
-        GROUP BY x.meja, jam_menit
-        ORDER BY x.meja ASC, jam_menit ASC
-    ";
+                            SELECT 
+                                x.meja,
+                                DATE_FORMAT(x.waktu, '%H:%i') AS jam_menit,
+                                GROUP_CONCAT(CONCAT(m.nama, ' (', x.jumlah, ')') SEPARATOR ', ') AS daftar_pesanan,
+                                SUM(x.total_harga) AS total_harga
+                            FROM (
+                                SELECT 
+                                    p.meja,
+                                    p.product_id,
+                                    SUM(p.jumlah) AS jumlah,
+                                    SUM(p.total_harga) AS total_harga,
+                                    MIN(p.tanggal) AS waktu
+                                FROM pesanan p
+                                GROUP BY p.meja, p.product_id, DATE_FORMAT(p.tanggal, '%H:%i')
+                            ) x
+                            JOIN menu m ON m.id = x.product_id
+                            GROUP BY x.meja, jam_menit
+                            ORDER BY x.meja ASC, jam_menit ASC
+                        ";
                         $result = $db->query($query);
 
                         if ($result && $result->num_rows > 0) {
@@ -180,7 +180,7 @@ if (isset($_GET['mode']) && $_GET['mode'] === 'table') {
                                         <a href='?selesai={$row['meja']}&jam=" . urlencode($row['jam_menit']) . "' 
                                         class='btn btn-success btn-sm'
                                         onclick=\"return confirm('Pesanan meja {$row['meja']} jam {$row['jam_menit']} sudah selesai?')\">
-                                        ✅ Selesai
+                                        Selesai
                                         </a>
                                     </td>
                                 </tr>";
@@ -202,7 +202,7 @@ if (isset($_GET['mode']) && $_GET['mode'] === 'table') {
 
     <!-- Script AJAX reload + Live Search -->
     <script>
-        // Fungsi reload tabel via AJAX
+        // Fungsi reload tabel
         function reloadTabel() {
             fetch("halaman_pelayan.php?mode=table")
                 .then(res => res.text())
@@ -211,21 +211,50 @@ if (isset($_GET['mode']) && $_GET['mode'] === 'table') {
                     applyFilter(); // tetap filter setelah reload
                 });
         }
-        setInterval(reloadTabel, 5000); // reload tiap 5 detik
+        setInterval(reloadTabel, 1000); // reload tiap 1 detik
 
-        // Fungsi filter pencarian
+        // ========== FILTER PENCARIAN BERDASARKAN NOMOR MEJA ==========
         function applyFilter() {
-            let input = document.getElementById("cariPesanan").value.toLowerCase();
-            let rows = document.querySelectorAll("#tabelPesanan tr");
+            let input = document.getElementById("cariPesanan").value.toLowerCase(); // Ambil teks input dan ubah jadi huruf kecil
+            let rows = document.querySelectorAll("#tabelPesanan tr"); // Ambil semua baris tabel
+            let found = false; // Penanda apakah ada data yang cocok
 
+            // Hapus pesan lama jika ada
+            let notFoundMsg = document.getElementById("notFoundMsg");
+            if (notFoundMsg) notFoundMsg.remove();
+
+            // Jika input kosong → tampilkan semua data dan hentikan fungsi
+            if (input.trim() === "") {
+                rows.forEach(row => row.style.display = "");
+                return;
+            }
+
+            // Loop setiap baris untuk mencocokkan data meja
             rows.forEach(row => {
-                let text = row.innerText.toLowerCase();
-                row.style.display = text.includes(input) ? "" : "none";
+                let mejaCell = row.querySelector("td:first-child"); // Ambil kolom pertama (nomor meja)
+                if (mejaCell) {
+                    let mejaText = mejaCell.innerText.toLowerCase();
+                    if (mejaText.includes(input)) {
+                        row.style.display = ""; // Tampilkan baris jika cocok
+                        found = true; // Tandai ada hasil
+                    } else {
+                        row.style.display = "none"; // Sembunyikan baris jika tidak cocok
+                    }
+                }
             });
-        }
 
-        // Event saat user mengetik
-        document.getElementById("cariPesanan").addEventListener("keyup", applyFilter);
+            // Jika tidak ada hasil yang cocok, tampilkan pesan
+            if (!found) {
+                let msg = document.createElement("tr"); // Buat elemen baris baru
+                msg.id = "notFoundMsg"; // Beri ID agar mudah dihapus nanti
+                msg.innerHTML = `
+            <td colspan="100%" class="text-center text-danger fw-bold py-3">
+                Meja tidak ditemukan
+            </td>
+        `;
+                document.getElementById("tabelPesanan").appendChild(msg); // Tambahkan pesan ke tabel
+            }
+        }
     </script>
 </body>
 

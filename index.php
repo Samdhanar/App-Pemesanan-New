@@ -392,14 +392,14 @@ while ($row = mysqli_fetch_assoc($query)) {
         <h2 class="text-center mb-4">Daftar Menu Produk</h2>
 
         <!-- Search Box -->
-        <div class="d-flex justify-content-center mb-2">
+        <div class="d-flex justify-content-center mb-4">
             <div class="search-box w-50">
                 <input type="text" class="form-control form-control-lg" placeholder="Cari produk..." id="searchInput">
             </div>
         </div>
 
         <!--dropdown kategori-->
-        <div class="d-flex justify-content-end mt-2">
+        <div class="d-flex justify-content-end mt-3">
             <select id="kategoriFilter" class="form-select w-auto">
                 <option value="">Semua Kategori</option>
                 <option value="makanan">Makanan</option>
@@ -433,23 +433,7 @@ while ($row = mysqli_fetch_assoc($query)) {
                         </div>
                     </div>
 
-                    <!-- Modal Detail Produk -->
-                    <div class="modal fade" id="modalDetail<?= $p['id']; ?>" tabindex="-1" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered modal-lg">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title"><?= $p['nama']; ?></h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                                </div>
-                                <div class="modal-body text-center">
-                                    <img src="koneksi/unggahan/<?= $p['gambar']; ?>" class="img-fluid mb-3" alt="<?= $p['nama']; ?>">
-                                    <hr>
-                                    <p class="text-start"><strong>Harga:</strong> Rp. <?= number_format($p['harga'], 0, ',', '.'); ?></p>
-                                    <p class="text-start"><strong>Kategori:</strong> <?= $p['kategori']; ?></p>
-                                    <p class="text-start"><strong>Deskripsi:</strong><br> <?= $p['deskripsi'] ?? 'Tidak ada deskripsi.'; ?></p>
-                                </div>
-                            </div>
-                        </div>
+                    <!-- 
                     </div>
                 <?php }
             } else { ?>

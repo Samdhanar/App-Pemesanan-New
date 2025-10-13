@@ -197,7 +197,7 @@ while ($row = mysqli_fetch_assoc($query)) {
         <!-- Nomor Meja -->
         <div class="mb-3">
           <label for="meja" class="form-label">Nomor Meja</label>
-          <input type="number" class="form-control" id="meja" name="meja" required>
+          <input type="number" class="form-control" placeholder="Masukkan nomor meja anda" id="meja" name="meja" required>
         </div>
 
         <!-- Search -->
@@ -220,7 +220,7 @@ while ($row = mysqli_fetch_assoc($query)) {
           <?php foreach ($produk as $p): ?>
             <div class="col produk-item" data-kategori="<?= strtolower($p['kategori']); ?>">
               <div class="card produk-card border rounded shadow-sm 
-           <?= $p['stok'] <= 0 ? 'opacity-50 pointer-events-none' : '' ?>"
+                          <?= $p['stok'] <= 0 ? 'opacity-50 pointer-events-none' : '' ?>"
                 <?php if ($p['stok'] > 0): ?>
                 onclick="tambahPesanan('<?= $p['id']; ?>','<?= $p['nama']; ?>',<?= $p['harga']; ?>)"
                 <?php endif; ?>>
@@ -240,7 +240,7 @@ while ($row = mysqli_fetch_assoc($query)) {
 
         <!-- Tabel Pesanan -->
         <table class="table table-bordered mt-4" id="tabelPesanan">
-          <thead>
+          <thead class="text-center">
             <tr>
               <th>Produk</th>
               <th>Jumlah</th>

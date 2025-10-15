@@ -57,10 +57,6 @@
               <a href="customerr.php" class="btn btn-danger w-100 mb-4">Batal</a>
             </form>
             <hr>
-            <p class="small">
-              Sudah punya akun?
-              <a href="login.php">Login di sini</a>
-            </p>
             <footer class="bg-light text-center py-4">
               <p class="mb-0">© 2025 Mas Dhanar || Kedai Sor Sawo</p>
             </footer>

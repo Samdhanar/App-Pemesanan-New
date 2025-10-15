@@ -433,7 +433,22 @@ while ($row = mysqli_fetch_assoc($query)) {
                         </div>
                     </div>
 
-                    <!-- 
+                    <!-- Modal Detail Produk -->
+                    <div class="modal fade" id="modalDetail<?= $p['id']; ?>" tabindex="-1" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title"><?= $p['nama']; ?></h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                </div>
+                                <div class="modal-body text-center">
+                                    <img src="koneksi/unggahan/<?= $p['gambar']; ?>" class="img-fluid mb-3" alt="<?= $p['nama']; ?>">
+                                    <p><strong>Harga:</strong> Rp. <?= number_format($p['harga'], 0, ',', '.'); ?></p>
+                                    <p><strong>Kategori:</strong> <?= $p['kategori']; ?></p>
+                                    <p><strong>Deskripsi:</strong><br> <?= $p['deskripsi'] ?? 'Tidak ada deskripsi.'; ?></p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 <?php }
             } else { ?>
@@ -442,7 +457,6 @@ while ($row = mysqli_fetch_assoc($query)) {
                 </div>
             <?php } ?>
         </div>
-
     </div>
 
     <!--floating whatsapp-->

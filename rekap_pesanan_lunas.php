@@ -101,8 +101,10 @@ $result = $db->query($query);
 
             <div class="d-flex justify-content-between align-items-center mb-3">
                 <!-- Tombol Export -->
-                <a href="export_rekap_penjualan.php"
-                    class="btn btn-success mb-3">⬇ Export Excel</a>
+                <a href="export_rekap_penjualan.php?tipe=<?= $tipe ?>&bulan=<?= $bulan_aktif ?>&tanggal=<?= $tanggal_aktif ?>" class="btn btn-success mb-3">
+                    ⬇ Export Excel
+                </a>
+
                 <!-- Total Pendapatan -->
                 <h5 class="mb-0">
                     Total Pendapatan:

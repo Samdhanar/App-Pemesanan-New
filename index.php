@@ -466,10 +466,46 @@ while ($row = mysqli_fetch_assoc($query)) {
     </a>
 
     <!-- Footer -->
-    <hr class="border border-dark border-1">
-    <footer class="text-center py-4 mt-5">
-        <p class="mb-0">© 2025 Mas Dhanar || Kedai Sor Sawo</p>
+    <!-- Footer Section -->
+    <footer class="footer" style="background:#1a1a1a; color:white; padding:40px 0; font-family:Arial, sans-serif;">
+        <div style="max-width:1200px; margin:auto; display:flex; flex-wrap:wrap; justify-content:center; gap:50px; text-align:center;">
+            <!-- Logo & Instansi -->
+            <div style="flex:1; min-width:200px;">
+                <img src="assets/image/kedai_sor_sawo.jpg" alt="Logo Instansi" style="width:150px; margin-bottom:10px;">
+                <h3 style="margin:0; font-size:20px; font-weight:bold;">Kedai Sor Sawo</h3>
+            </div>
+
+            <!-- Alamat -->
+            <div style="flex:1; min-width:250px;">
+                <h4 style="margin-bottom:10px; font-size:18px;">Alamat</h4>
+                <p style="margin:0; color:#ccc; font-size:14px; line-height:1.5; text-align: justify;">
+                    Jl. Pramuka No.1, Sultanagung, Nologaten, Kec. Ponorogo, Kabupaten Ponorogo, Jawa Timur 63491
+                </p>
+                <div style="margin-top:15px;">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d384.3003570353718!2d111.47549694011961!3d-7.8643895258290915!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e79a02a819efb2f%3A0xa885e70c0b59def1!2sKEDAI%20SOR%20SAWO!5e0!3m2!1sid!2sid!4v1763442101214!5m2!1sid!2sid" width="300" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+
+            <!-- Sosial Media -->
+            <div style="flex:1; min-width:200px;">
+                <h4 style="margin-bottom:10px; font-size:18px;">Sosial Media</h4>
+                <div style="display:flex; justify-content:center; gap:15px; font-size:24px;">
+                    <a href="#" style="color:white; text-decoration:none;"><i class="bi bi-tiktok"></i></a>
+                    <a href="https://www.instagram.com/sor_sawo_?igsh=eDVkYWc3Y2ZxZmg1" style="color:white; text-decoration:none;"><i class="bi bi-instagram"></i></a>
+                    <a href="#" style="color:white; text-decoration:none;"><i class="bi bi-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Copyright -->
+        <div style="text-align:center; margin-top:30px; padding-top:15px; border-top:1px solid #333; color:#777; font-size:14px;">
+            © 2025 Mas Dhanar || Kedai Sor Sawo
+        </div>
     </footer>
+
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
     <script>

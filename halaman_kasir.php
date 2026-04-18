@@ -10,30 +10,59 @@ if (!isset($_SESSION['username']) || $_SESSION['username'] !== 'kasir') {
 }
 
 // ================== PROSES PEMBAYARAN ==================
+// ================== PROSES PEMBAYARAN ==================
 if (isset($_POST['aksi']) && $_POST['aksi'] == "bayar") {
     $meja = $_POST['meja'];
     $jam_menit = $_POST['jam_menit'];
     $bayar = intval($_POST['bayar']);
     $diskon = intval($_POST['diskon']);
+    $payment_method = $_POST['payment_method'];
+    $payment_reference = $_POST['payment_reference'];
 
     $q = $db->query("
-        SELECT SUM(total_harga) as total_harga, MAX(tanggal) as tanggal
+        SELECT SUM(total_harga) as total_harga
         FROM rekap_penjualan 
-        WHERE meja='$meja' AND DATE_FORMAT(tanggal, '%H:%i')='$jam_menit' AND status='BELUM'
+        WHERE meja='$meja'
+        AND DATE_FORMAT(tanggal, '%H:%i')='$jam_menit'
+        AND status='BELUM'
     ");
     $d = $q->fetch_assoc();
     $total = $d['total_harga'];
 
     $total_setelah_diskon = $total - ($total * $diskon / 100);
 
-    if ($bayar < $total_setelah_diskon) {
-        echo "<script>alert('Uang bayar kurang dari total belanja!'); window.location='halaman_kasir.php';</script>";
+    // CASH wajib cek uang
+    if ($payment_method == 'CASH' && $bayar < $total_setelah_diskon) {
+        echo "<script>alert('Uang bayar kurang!');window.location='halaman_kasir.php';</script>";
         exit;
     }
 
-    $db->query("UPDATE rekap_penjualan 
-            SET status='LUNAS'
-            WHERE meja='$meja' AND DATE_FORMAT(tanggal, '%H:%i')='$jam_menit' AND status='BELUM'");
+    // Jika QRIS / TRANSFER → otomatis dianggap sukses
+    if ($payment_method != 'CASH') {
+        $bayar = $total_setelah_diskon;
+        if ($payment_reference == '') {
+            $payment_reference = strtoupper($payment_method) . '-' . time();
+        }
+    }
+
+    $stmt = $db->prepare("
+        UPDATE rekap_penjualan
+        SET status='LUNAS',
+            payment_method=?,
+            payment_reference=?
+        WHERE meja=?
+        AND DATE_FORMAT(tanggal, '%H:%i')=?
+        AND status='BELUM'
+    ");
+
+    $stmt->bind_param(
+        "ssss",
+        $payment_method,
+        $payment_reference,
+        $meja,
+        $jam_menit
+    );
+    $stmt->execute();
 
     header("Location: struk.php?meja=$meja&jam_menit=$jam_menit&bayar=$bayar&diskon=$diskon");
     exit;
@@ -123,24 +152,58 @@ if (isset($_GET['mode']) && $_GET['mode'] === 'table') {
 
             let total_setelah_diskon = total - (total * diskon / 100);
 
-            alert("Total belanja: Rp" + total.toLocaleString() +
-                "\nDiskon: " + diskon + "%" +
-                "\nTotal setelah diskon: Rp" + total_setelah_diskon.toLocaleString());
+            let metode = prompt(
+                "Pilih metode pembayaran:\n1. CASH\n2. QRIS\n3. TRANSFER\n\nKetik: CASH / QRIS / TRANSFER",
+                "CASH"
+            );
+            if (!metode) return;
+            metode = metode.toUpperCase();
 
-            let bayar = prompt("Masukkan jumlah uang bayar (Total: Rp" + total_setelah_diskon.toLocaleString() + "):", "");
-            if (bayar && !isNaN(bayar)) {
-                if (parseInt(bayar) < total_setelah_diskon) {
-                    alert("Uang bayar kurang dari total belanja!");
+            let bayar = total_setelah_diskon;
+            let reference = "";
+
+            // CASH
+            if (metode === "CASH") {
+                bayar = prompt(
+                    "Total bayar: Rp" + total_setelah_diskon.toLocaleString() + "\nMasukkan uang:",
+                    ""
+                );
+                if (!bayar || isNaN(bayar) || parseInt(bayar) < total_setelah_diskon) {
+                    alert("Uang tidak valid!");
                     return;
                 }
-                let form = document.getElementById("formBayar");
-                form.meja.value = meja;
-                form.jam_menit.value = jam_menit;
-                form.bayar.value = bayar;
-                form.diskon.value = diskon;
-                form.submit();
             }
+
+            // QRIS
+            if (metode === "QRIS") {
+                alert(
+                    "=== PEMBAYARAN QRIS ===\n\n" +
+                    "Silakan scan QR berikut dari m-banking / e-wallet\n\n" +
+                    "[SIMULASI QRIS BERHASIL]"
+                );
+                reference = "QRIS-" + Date.now();
+            }
+
+            // TRANSFER
+            if (metode === "TRANSFER") {
+                alert(
+                    "=== TRANSFER BANK ===\n\n" +
+                    "Bank BCA\nNo Rek: 1234567890\nA/N Kedai Sor Sawo\n\n" +
+                    "[SIMULASI TRANSFER BERHASIL]"
+                );
+                reference = "TRF-" + Date.now();
+            }
+
+            let form = document.getElementById("formBayar");
+            form.meja.value = meja;
+            form.jam_menit.value = jam_menit;
+            form.bayar.value = bayar;
+            form.diskon.value = diskon;
+            form.payment_method.value = metode;
+            form.payment_reference.value = reference;
+            form.submit();
         }
+
 
         // ================ PENCARIAN NOMOR MEJA ================
         function cariData() {
@@ -207,6 +270,8 @@ if (isset($_GET['mode']) && $_GET['mode'] === 'table') {
                 <input type="hidden" name="jam_menit">
                 <input type="hidden" name="bayar">
                 <input type="hidden" name="diskon">
+                <input type="hidden" name="payment_method">
+                <input type="hidden" name="payment_reference">
             </form>
 
             <div class="container mt-5">
